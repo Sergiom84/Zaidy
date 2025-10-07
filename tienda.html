@@ -251,7 +251,7 @@
     <section class="shop-section">
         <div class="container">
             <div class="shop-controls">
-                <p class="product-count">Mostrando 4 productos</p>
+                <p class="product-count">Mostrando 3 productos</p>
                 <select class="sort-select">
                     <option>Ordenar por popularidad</option>
                     <option>Ordenar por calificación</option>
@@ -263,8 +263,8 @@
 
             <div class="products-grid">
                 <!-- Product 1: Libro -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card" onclick="window.location.href='producto-libro.html'" style="cursor: pointer;">
+                    <div class="product-image" style="background: url('images/libro-camino-al-alma.jpg') center/contain no-repeat; background-color: #34D5B8;">
                         <span class="product-badge">Bestseller</span>
                     </div>
                     <div class="product-info">
@@ -279,34 +279,14 @@
                                 <span class="product-price-label">Precio</span>
                                 <span class="product-price">$11.00</span>
                             </div>
-                            <button class="btn-add-cart">Comprar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2: Libro Amazon -->
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <div class="product-info">
-                        <span class="product-category">Libro</span>
-                        <h3>Camino al Alma: En Tiempos de Tribulación - Amazon</h3>
-                        <p class="product-description">
-                            La misma obra transformadora, disponible directamente en Amazon para tu comodidad.
-                            Envío rápido y seguro a tu puerta.
-                        </p>
-                        <div class="product-footer">
-                            <div>
-                                <span class="product-price-label">Disponible en</span>
-                                <span class="product-price" style="font-size: 1.3rem;">Amazon</span>
-                            </div>
-                            <button class="btn-add-cart">Ver en Amazon</button>
+                            <button class="btn-add-cart" onclick="event.stopPropagation(); window.location.href='producto-libro.html'">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3: Curso Pago Total -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card" onclick="window.location.href='producto-curso-pago-total.html'" style="cursor: pointer;">
+                    <div class="product-image" style="background: url('images/curso-redespertar-mente.png') center/contain no-repeat; background-color: #f8f9fa;">
                         <span class="product-badge">Ahorra 10%</span>
                     </div>
                     <div class="product-info">
@@ -335,14 +315,14 @@
                                 <span class="product-price-label">Precio total</span>
                                 <span class="product-price">$267.00</span>
                             </div>
-                            <button class="btn-add-cart">Inscribirme</button>
+                            <button class="btn-add-cart" onclick="event.stopPropagation(); window.location.href='producto-curso-pago-total.html'">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 4: Curso Pago Mensual -->
-                <div class="product-card">
-                    <div class="product-image">
+                <div class="product-card" onclick="window.location.href='producto-curso-pago-mensual.html'" style="cursor: pointer;">
+                    <div class="product-image" style="background: url('images/curso-redespertar-mente-mensual.png') center/contain no-repeat; background-color: #f8f9fa;">
                         <span class="product-badge">Popular</span>
                     </div>
                     <div class="product-info">
@@ -371,7 +351,7 @@
                                 <span class="product-price-label">Por mes</span>
                                 <span class="product-price">$89.00</span>
                             </div>
-                            <button class="btn-add-cart">Comenzar</button>
+                            <button class="btn-add-cart" onclick="event.stopPropagation(); window.location.href='producto-curso-pago-mensual.html'">Ver Detalles</button>
                         </div>
                     </div>
                 </div>

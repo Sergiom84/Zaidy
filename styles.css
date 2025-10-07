@@ -448,6 +448,19 @@ ul {
     border-radius: 8px;
 }
 
+.book-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+}
+
+.book-image:hover {
+    transform: scale(1.05);
+}
+
 .book-label {
     display: inline-block;
     background: var(--accent-color);
