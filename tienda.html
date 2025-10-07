@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Zaidy Di Franco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .shop-section {
+            padding: 80px 0;
+        }
+
+        .shop-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .product-count {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .sort-select {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--bg-light);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .product-price-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .btn-add-cart {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .product-options {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--bg-light);
+        }
+
+        .option-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.6rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .option-name {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .option-price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shop-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Zaidy Di Franco</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Mis Servicios</a></li>
+                <li><a href="medios.html">Medios</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="tienda.html" class="active">Tienda</a></li>
+                <li><a href="contacto.html" class="btn-contact">Contáctame</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Tienda</h1>
+            <p>Recursos para tu transformación personal y espiritual</p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-controls">
+                <p class="product-count">Mostrando 4 productos</p>
+                <select class="sort-select">
+                    <option>Ordenar por popularidad</option>
+                    <option>Ordenar por calificación</option>
+                    <option>Ordenar por más reciente</option>
+                    <option>Ordenar por precio: bajo a alto</option>
+                    <option>Ordenar por precio: alto a bajo</option>
+                </select>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Libro -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Libro</span>
+                        <h3>Camino al Alma en Tiempos de Tribulación</h3>
+                        <p class="product-description">
+                            Una guía transformadora para encontrar paz interior en medio de los desafíos
+                            de la vida moderna. Descubre cómo conectar con tu esencia más profunda.
+                        </p>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price-label">Precio</span>
+                                <span class="product-price">$11.00</span>
+                            </div>
+                            <button class="btn-add-cart">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Libro Amazon -->
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Libro</span>
+                        <h3>Camino al Alma: En Tiempos de Tribulación - Amazon</h3>
+                        <p class="product-description">
+                            La misma obra transformadora, disponible directamente en Amazon para tu comodidad.
+                            Envío rápido y seguro a tu puerta.
+                        </p>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price-label">Disponible en</span>
+                                <span class="product-price" style="font-size: 1.3rem;">Amazon</span>
+                            </div>
+                            <button class="btn-add-cart">Ver en Amazon</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Curso Pago Total -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Ahorra 10%</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Curso Online</span>
+                        <h3>Redespertar de la Mente - Pago Total</h3>
+                        <p class="product-description">
+                            Programa completo de transformación interior. Libera tu mente de patrones
+                            limitantes y descubre tu verdadero potencial. Acceso de por vida.
+                        </p>
+                        <div class="product-options">
+                            <div class="option-item">
+                                <span class="option-name">✓ Acceso completo e ilimitado</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ 12+ horas de contenido</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ Certificado de finalización</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ Material descargable</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price-label">Precio total</span>
+                                <span class="product-price">$267.00</span>
+                            </div>
+                            <button class="btn-add-cart">Inscribirme</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Curso Pago Mensual -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Curso Online</span>
+                        <h3>Redespertar de la Mente - Pago Mensual</h3>
+                        <p class="product-description">
+                            El mismo programa transformador con la flexibilidad del pago mensual.
+                            Comienza tu viaje de transformación hoy con un plan accesible.
+                        </p>
+                        <div class="product-options">
+                            <div class="option-item">
+                                <span class="option-name">✓ Acceso completo al curso</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ Duración: 3 meses</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ Certificado de finalización</span>
+                            </div>
+                            <div class="option-item">
+                                <span class="option-name">✓ Soporte durante el curso</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price-label">Por mes</span>
+                                <span class="product-price">$89.00</span>
+                            </div>
+                            <button class="btn-add-cart">Comenzar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="services-preview" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir nuestros recursos?</h2>
+
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Contenido Probado</h3>
+                    <p>Basado en años de experiencia y miles de personas transformadas</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>A Tu Ritmo</h3>
+                    <p>Aprende cuando quieras, desde donde estés</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Resultados Reales</h3>
+                    <p>Herramientas prácticas que generan cambios duraderos</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Acompañamiento</h3>
+                    <p>No estás solo en tu proceso de transformación</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Necesitas orientación personalizada?</h2>
+                <p>Agenda una sesión individual y descubre el camino perfecto para tu transformación</p>
+                <a href="contacto.html" class="btn btn-white">Contáctame</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Zaidy Di Franco</h3>
+                    <p>Coach, Terapeuta y Acompañante del Alma</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zaidydifranco1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/zaidydifranco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zaidydifranco" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Mis Servicios</a></li>
+                        <li><a href="medios.html">Medios</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contenido</h4>
+                    <ul>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p>¿Listo para comenzar tu transformación?</p>
+                    <a href="contacto.html" class="btn btn-small">Agenda una Sesión</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zaidy Di Franco. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
