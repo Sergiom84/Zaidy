@@ -311,7 +311,7 @@ function showHandbookSuccess(nombre) {
     successDiv.className = 'success-message';
     successDiv.innerHTML = `
         <strong>¡Gracias ${nombre}!</strong><br>
-        Te hemos enviado el Handbook a tu correo. Revisa tu bandeja de entrada.
+        Tu Handbook se descargará automáticamente. Revisa tu bandeja de entrada para más recursos.
     `;
     successDiv.style.cssText = `
         position: fixed;
@@ -329,8 +329,8 @@ function showHandbookSuccess(nombre) {
 
     document.body.appendChild(successDiv);
 
-    // Auto download handbook (you would replace this with actual file)
-    // simulateHandbookDownload();
+    // Download handbook
+    downloadHandbook();
 
     setTimeout(() => {
         successDiv.style.animation = 'slideOut 0.3s ease';
@@ -338,8 +338,8 @@ function showHandbookSuccess(nombre) {
     }, 5000);
 }
 
-function simulateHandbookDownload() {
-    // This is where you would trigger the actual file download
-    // Example: window.location.href = '/downloads/handbook.pdf';
-    console.log('Handbook download initiated');
+function downloadHandbook() {
+    // Direct download link to Google Drive file
+    const handbookUrl = 'https://drive.google.com/uc?export=download&id=1gzjSJr1N4CVy1W3PDe1TRa-YB_6wbe_w';
+    window.open(handbookUrl, '_blank');
 }
