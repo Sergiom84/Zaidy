@@ -10,7 +10,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Read(//c/Users/Sergio/Desktop/Zaidy_fotos/**)",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Bash(del \"C:\\Users\\Sergio\\Desktop\\Zaidy\\images\\logo-zaidy-difranco.png\")",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

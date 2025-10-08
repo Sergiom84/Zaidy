@@ -91,10 +91,18 @@ ul {
     font-weight: 700;
     color: var(--primary-color);
     transition: var(--transition);
+    display: flex;
+    align-items: center;
 }
 
-.logo:hover {
-    color: var(--primary-dark);
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.logo:hover img {
+    opacity: 0.8;
 }
 
 .nav-menu {

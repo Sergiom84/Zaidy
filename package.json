@@ -1,0 +1,25 @@
+{
+  "name": "zaidy",
+  "version": "1.0.0",
+  "description": "Sitio web profesional para coaching, terapia transpersonal y acompañamiento del alma.",
+  "main": "script.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergiom84/Zaidy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergiom84/Zaidy/issues"
+  },
+  "homepage": "https://github.com/Sergiom84/Zaidy#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

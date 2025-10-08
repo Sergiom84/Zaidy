@@ -63,6 +63,12 @@
             gap: 2rem;
         }
 
+        .video-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .video-card {
             background: var(--white);
             border-radius: var(--border-radius);
@@ -71,7 +77,7 @@
             transition: var(--transition);
         }
 
-        .video-card:hover {
+        .video-link:hover .video-card {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
@@ -79,36 +85,60 @@
         .video-thumbnail {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
         }
 
+        .video-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .video-link:hover .video-thumbnail::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
         .video-thumbnail::after {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .video-link:hover .video-thumbnail::after {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 1);
         }
 
         .play-icon {
             width: 0;
             height: 0;
-            border-left: 20px solid var(--primary-color);
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
+            border-left: 22px solid var(--primary-color);
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-40%, -50%);
-            z-index: 1;
+            transform: translate(-35%, -50%);
+            z-index: 3;
         }
 
         .video-info {
@@ -213,7 +243,9 @@
     <!-- Navegación -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Zaidy Di Franco</a>
+            <a href="index.html" class="logo">
+                <img src="images/Logo_Zaidy.jpg" alt="Zaidy Di Franco - Terapeuta y Acompañante del Alma">
+            </a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -246,83 +278,65 @@
                 <h2 class="media-category-title">Videos</h2>
 
                 <div class="videos-grid">
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
+                    <a href="https://www.youtube.com/watch?v=i9-RThAAJCs" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/i9-RThAAJCs/maxresdefault.jpg');">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="video-info">
+                                <h3>¡Como liberarte de la basura mental! con Zaidy Di Franco</h3>
+                                <p>
+                                    Conversación profunda sobre cómo reconectar con nuestra esencia interior
+                                    y permitir que el alma se exprese en nuestra vida cotidiana.
+                                </p>
+                            </div>
                         </div>
-                        <div class="video-info">
-                            <h3>Así Se Expresa el Alma</h3>
-                            <p>
-                                Conversación profunda sobre cómo reconectar con nuestra esencia interior
-                                y permitir que el alma se exprese en nuestra vida cotidiana.
-                            </p>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
+                    <a href="https://www.youtube.com/watch?v=zFC3j9PQ18A&t=29s" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/zFC3j9PQ18A/maxresdefault.jpg');">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="video-info">
+                                <h3>La percepción no es un hecho, es una elección.</h3>
+                                <p>
+                                    Explorando el poder transformador del perdón como herramienta de
+                                    liberación personal y sanación de relaciones.
+                                </p>
+                            </div>
                         </div>
-                        <div class="video-info">
-                            <h3>El Perdón</h3>
-                            <p>
-                                Explorando el poder transformador del perdón como herramienta de
-                                liberación personal y sanación de relaciones.
-                            </p>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
+                    <a href="https://www.youtube.com/watch?v=6I5B4F9lst8&t=211s" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/6I5B4F9lst8/maxresdefault.jpg');">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Curacion Actitudes con Zaidy Di Franco</h3>
+                                <p>
+                                    Cómo la aceptación genuina de nosotros mismos y nuestras circunstancias
+                                    nos lleva a la paz interior.
+                                </p>
+                            </div>
                         </div>
-                        <div class="video-info">
-                            <h3>La Aceptación</h3>
-                            <p>
-                                Cómo la aceptación genuina de nosotros mismos y nuestras circunstancias
-                                nos lleva a la paz interior.
-                            </p>
-                        </div>
-                    </div>
+                    </a>
 
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
+                    <a href="https://www.youtube.com/watch?v=cEBCCc2KCZs&t=54s" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <div class="video-card">
+                            <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/cEBCCc2KCZs/maxresdefault.jpg');">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Perdonando lo imperdonable con Zaidy Di Franco</h3>
+                                <p>
+                                    Entendiendo las barreras que nos impiden dar y recibir amor plenamente,
+                                    y cómo trascenderlas.
+                                </p>
+                            </div>
                         </div>
-                        <div class="video-info">
-                            <h3>Miedo al Amor</h3>
-                            <p>
-                                Entendiendo las barreras que nos impiden dar y recibir amor plenamente,
-                                y cómo trascenderlas.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
-                        </div>
-                        <div class="video-info">
-                            <h3>Salud y Bienestar Emocional</h3>
-                            <p>
-                                La conexión fundamental entre nuestra salud emocional y nuestro
-                                bienestar físico integral.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon"></div>
-                        </div>
-                        <div class="video-info">
-                            <h3>Transformación Personal</h3>
-                            <p>
-                                Herramientas prácticas para iniciar y sostener un proceso profundo
-                                de transformación personal.
-                            </p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -339,16 +353,14 @@
                     <div class="podcast-details">
                         <h3>Camino al Alma en Tiempos de Tribulación</h3>
                         <p>
-                            Conversaciones profundas sobre cómo navegar los tiempos difíciles
+                            Meditaciones profundas sobre cómo navegar los tiempos difíciles
                             y encontrar paz interior en medio de la adversidad.
                         </p>
                         <div class="podcast-quote">
-                            "Hoy sonrío en la certeza de que no son los problemas o los conflictos
-                            los que nos causan sufrimiento, sino las interpretaciones que le damos a ellos."
+                            "Alma mía que corres y no sientes que llegas, ¡detente! llegaste a la Paz."
                         </div>
                         <p>
-                            En estos podcasts comparto herramientas, experiencias y reflexiones
-                            que te acompañan en tu proceso de sanación y transformación personal.
+                            Reflexiones que te acompañan día  a día en tu camino de transformación hacia tu Paz interior.
                         </p>
                     </div>
                 </div>
