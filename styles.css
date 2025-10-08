@@ -234,7 +234,7 @@ ul {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    background: url('images/Zaidy.png') center/cover no-repeat;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     box-shadow: var(--shadow-lg);
     position: relative;
 }
