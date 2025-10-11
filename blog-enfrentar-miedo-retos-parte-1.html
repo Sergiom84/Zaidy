@@ -184,7 +184,10 @@
         .author-avatar {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: url('images/Zaidy.png');
+            background-size: 115%;
+            background-position: center center;
+            background-repeat: no-repeat;
             border-radius: 50%;
             margin: 0 auto 1rem;
         }
@@ -309,6 +312,68 @@
             color: var(--text-light);
         }
 
+        .post-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--bg-light);
+        }
+
+        .nav-post {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--bg-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-post:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-post-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-post-title {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .nav-post:hover .nav-post-title {
+            color: var(--primary-color);
+        }
+
+        .nav-previous {
+            text-align: left;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        .nav-next .nav-post-label {
+            justify-content: flex-end;
+        }
+
         @media (max-width: 968px) {
             .article-header h1 {
                 font-size: 2rem;
@@ -337,6 +402,10 @@
 
             .article-quote p {
                 font-size: 1.1rem;
+            }
+
+            .post-navigation {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -467,6 +536,18 @@
                         Archivado bajo: <a href="#" style="color: var(--primary-color);">Actitud</a>
                     </p>
 
+                    <!-- Navegación entre entradas -->
+                    <nav class="post-navigation">
+                        <a href="blog-soltar-defensas.html" class="nav-post nav-previous">
+                            <span class="nav-post-label">← Entrada Anterior</span>
+                            <span class="nav-post-title">Soltar las Defensas</span>
+                        </a>
+                        <a href="blog-enfrentar-miedo-retos-parte-2.html" class="nav-post nav-next">
+                            <span class="nav-post-label">Entrada Siguiente →</span>
+                            <span class="nav-post-title">Cómo enfrentar el miedo a los nuevos retos (PARTE II)</span>
+                        </a>
+                    </nav>
+
                     <div class="article-cta">
                         <h3>¿Listo para Enfrentar tus Miedos?</h3>
                         <p>
@@ -498,7 +579,7 @@
                         <div class="related-posts">
                             <a href="blog-enfrentar-miedo-retos-parte-2.html" style="text-decoration: none; color: inherit;">
                                 <div class="related-post-item">
-                                    <div class="related-post-thumb"></div>
+                                    <div class="related-post-thumb" style="background: url('images/Blog_3.jpg') center/cover no-repeat;"></div>
                                     <div class="related-post-info">
                                         <span class="related-post-category">Claves</span>
                                         <h4>Cómo enfrentar el miedo a los nuevos retos (PARTE II)</h4>
@@ -508,7 +589,7 @@
 
                             <a href="blog-poder-actitud-oportunidades.html" style="text-decoration: none; color: inherit;">
                                 <div class="related-post-item">
-                                    <div class="related-post-thumb"></div>
+                                    <div class="related-post-thumb" style="background: url('images/Blog_2.jpg') center/cover no-repeat;"></div>
                                     <div class="related-post-info">
                                         <span class="related-post-category">Actitud</span>
                                         <h4>El poder de nuestra actitud ante nuevas oportunidades</h4>
@@ -518,7 +599,7 @@
 
                             <a href="blog-liderando-autentico-ser.html" style="text-decoration: none; color: inherit;">
                                 <div class="related-post-item">
-                                    <div class="related-post-thumb"></div>
+                                    <div class="related-post-thumb" style="background: url('images/blog-liderazgo-autentico.jpg') center/cover no-repeat;"></div>
                                     <div class="related-post-info">
                                         <span class="related-post-category">Liderazgo</span>
                                         <h4>Encajar no es sinónimo de pertenecer</h4>

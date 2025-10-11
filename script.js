@@ -343,3 +343,28 @@ function downloadHandbook() {
     const handbookUrl = 'https://drive.google.com/uc?export=download&id=1gzjSJr1N4CVy1W3PDe1TRa-YB_6wbe_w';
     window.open(handbookUrl, '_blank');
 }
+
+// ===========================
+// Image Carousel for Hero Background
+// ===========================
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-bg-slide');
+
+    if (slides.length > 0) {
+        let currentSlide = 0;
+
+        function nextSlide() {
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+
+            // Move to next slide
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 4 seconds (4000 milliseconds)
+        setInterval(nextSlide, 4000);
+    }
+});
