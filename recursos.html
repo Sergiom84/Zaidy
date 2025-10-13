@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .page-header {
-            padding: 140px 0 60px;
+            padding: 180px 0 80px;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             text-align: center;
             color: var(--white);
@@ -111,43 +111,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            background: var(--bg-light);
+            padding: 1rem;
         }
 
-        .resource-icon.youtube {
-            background: linear-gradient(135deg, #FF0000, #cc0000);
-            color: white;
+        .resource-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .resource-icon.whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-        }
-
-        .resource-icon.spotify {
-            background: linear-gradient(135deg, #1DB954, #1ed760);
-            color: white;
-        }
-
-        .resource-icon.amazon {
-            background: linear-gradient(135deg, #FF9900, #ff8800);
-            color: white;
-        }
-
-        .resource-icon.facebook {
-            background: linear-gradient(135deg, #1877F2, #0d65d9);
-            color: white;
-        }
-
-        .resource-icon.instagram {
-            background: linear-gradient(135deg, #E4405F, #d62976, #c13584);
-            color: white;
-        }
-
-        .resource-icon.linkedin {
-            background: linear-gradient(135deg, #0077B5, #005885);
-            color: white;
-        }
 
         .resource-body {
             padding: 0 2rem 2rem;
@@ -211,59 +184,59 @@
         }
 
         .btn-resource.youtube {
-            background: #FF0000;
+            background: #A8DADC;
         }
 
         .btn-resource.youtube:hover {
-            background: #cc0000;
+            background: #4ECDC4;
         }
 
         .btn-resource.whatsapp {
-            background: #25D366;
+            background: #4ECDC4;
         }
 
         .btn-resource.whatsapp:hover {
-            background: #128C7E;
+            background: #38BDBE;
         }
 
         .btn-resource.spotify {
-            background: #1DB954;
+            background: #38BDBE;
         }
 
         .btn-resource.spotify:hover {
-            background: #1ed760;
+            background: #4ECDC4;
         }
 
         .btn-resource.amazon {
-            background: #FF9900;
+            background: #A8DADC;
         }
 
         .btn-resource.amazon:hover {
-            background: #ff8800;
+            background: #38BDBE;
         }
 
         .btn-resource.facebook {
-            background: #1877F2;
+            background: #4ECDC4;
         }
 
         .btn-resource.facebook:hover {
-            background: #0d65d9;
+            background: #A8DADC;
         }
 
         .btn-resource.instagram {
-            background: linear-gradient(135deg, #E4405F, #c13584);
+            background: linear-gradient(135deg, #38BDBE, #A8DADC);
         }
 
         .btn-resource.instagram:hover {
-            background: linear-gradient(135deg, #d62976, #b02c6f);
+            background: linear-gradient(135deg, #4ECDC4, #38BDBE);
         }
 
         .btn-resource.linkedin {
-            background: #0077B5;
+            background: #A8DADC;
         }
 
         .btn-resource.linkedin:hover {
-            background: #005885;
+            background: #4ECDC4;
         }
 
         .cta-resources {
@@ -299,7 +272,7 @@
             .resource-icon {
                 width: 80px;
                 height: 80px;
-                font-size: 2.5rem;
+                padding: 0.8rem;
             }
         }
     </style>
@@ -309,7 +282,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="images/Logo_Zaidy.jpg" alt="Zaidy Di Franco - Terapeuta y Acompañante del Alma">
+                <img src="images/Logo_3.png" alt="Zaidy Di Franco - Terapeuta y Acompañante del Alma">
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -320,6 +293,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Mis Servicios</a></li>
                 <li><a href="medios.html">Medios</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="recursos.html" class="active">Recursos</a></li>
                 <li><a href="tienda.html">Tienda</a></li>
@@ -352,7 +326,9 @@
                 <!-- YouTube -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon youtube">▶</div>
+                        <div class="resource-icon youtube">
+                            <img src="images/Youtube.png" alt="YouTube">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Canal de YouTube</h3>
@@ -375,7 +351,9 @@
                 <!-- Spotify -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon spotify">♪</div>
+                        <div class="resource-icon spotify">
+                            <img src="images/Spotify.png" alt="Spotify">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Podcast en Spotify</h3>
@@ -398,7 +376,9 @@
                 <!-- WhatsApp Group -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon whatsapp">💬</div>
+                        <div class="resource-icon whatsapp">
+                            <img src="images/Whatsapp.png" alt="WhatsApp">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Grupo de WhatsApp</h3>
@@ -421,7 +401,9 @@
                 <!-- Amazon Book -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon amazon">📖</div>
+                        <div class="resource-icon amazon">
+                            <img src="images/Amazon.png" alt="Amazon">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Libro en Amazon</h3>
@@ -444,7 +426,9 @@
                 <!-- Facebook -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon facebook">f</div>
+                        <div class="resource-icon facebook">
+                            <img src="images/Facebook.png" alt="Facebook">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Página de Facebook</h3>
@@ -467,7 +451,9 @@
                 <!-- Instagram -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon instagram">📷</div>
+                        <div class="resource-icon instagram">
+                            <img src="images/Instagram.png" alt="Instagram">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>Instagram</h3>
@@ -490,7 +476,9 @@
                 <!-- LinkedIn -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <div class="resource-icon linkedin">in</div>
+                        <div class="resource-icon linkedin">
+                            <img src="images/Linkedin.png" alt="LinkedIn">
+                        </div>
                     </div>
                     <div class="resource-body">
                         <h3>LinkedIn Profesional</h3>
@@ -557,6 +545,7 @@
                         <li><a href="index.html">Inicio</a></li>
                         <li><a href="servicios.html">Mis Servicios</a></li>
                         <li><a href="medios.html">Medios</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
