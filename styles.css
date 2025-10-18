@@ -181,8 +181,8 @@ ul {
    Hero Section
    =========================== */
 .hero {
-    padding: 100px 0 50px;
-    min-height: 70vh;
+    padding: 100px 0 120px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -216,8 +216,20 @@ ul {
     opacity: 1;
 }
 
+/* Posiciones específicas para cada slide del carrusel */
+.hero-bg-slide.slide-1 {
+    background-position: center 15%;
+}
+
+.hero-bg-slide.slide-2 {
+    background-position: center 20%;
+}
+
+.hero-bg-slide.slide-3 {
+    background-position: center 16%;
+}
+
 .hero .container {
-    position: relative;
     z-index: 1;
     max-width: 100%;
     padding: 0;
@@ -231,7 +243,6 @@ ul {
     width: 100%;
     padding: 0 20px;
     gap: 0;
-    position: relative;
 }
 
 .hero-text {
@@ -265,14 +276,6 @@ ul {
     flex-wrap: wrap;
 }
 
-.hero-image {
-    position: fixed;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    will-change: transform;
-}
 
 .image-placeholder {
     position: relative;
@@ -296,10 +299,10 @@ ul {
 .circle-image::before {
     content: '';
     position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 150px;
-    height: 150px;
+    top: -10px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: var(--accent-color);
     opacity: 0.3;
@@ -378,9 +381,16 @@ ul {
     background: var(--white);
 }
 
-.main-quote {
-    max-width: 900px;
+.quote-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.main-quote {
+    flex: 1;
     text-align: center;
 }
 
@@ -398,6 +408,10 @@ ul {
     color: var(--primary-color);
     font-weight: 600;
     font-style: normal;
+}
+
+.quote-image {
+    flex-shrink: 0;
 }
 
 /* ===========================
@@ -807,7 +821,7 @@ ul {
 .evento-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     transition: var(--transition);
 }
@@ -961,6 +975,9 @@ ul {
     }
 
     .hero-image {
+        position: static;
+        right: auto;
+        top: auto;
         justify-content: center;
     }
 
