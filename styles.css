@@ -1167,29 +1167,35 @@ ul {
     }
 
     .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 0.8rem;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
     }
 
     .subtitle {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+        color: var(--text-light);
     }
 
     .hero-description {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        color: var(--text-dark);
     }
 
     .hero-buttons {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
+        width: 100%;
     }
 
     .hero-buttons .btn {
         width: 100%;
         text-align: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
     }
 
     .circle-image {
@@ -1203,10 +1209,11 @@ ul {
 
     /* Mobile-only: mostrar el carrusel primero y el texto debajo */
     .hero-background-carousel {
-        position: relative; /* deja que ocupe espacio en el flujo */
-        height: 60vh;
-        min-height: 320px;
-        max-height: 70vh;
+        position: relative;
+        height: 55vh;
+        min-height: 350px;
+        max-height: 60vh;
+        width: 100%;
     }
 
     .hero-bg-slide {
@@ -1214,13 +1221,25 @@ ul {
     }
 
     .hero .container {
-        position: relative;
+        position: static;
         z-index: 1;
-        margin-top: 12px; /* pequeño espacio bajo la imagen */
+        background: var(--white);
+        padding: 2rem 20px !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .hero-content {
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+        background: transparent;
     }
 
     .hero-text {
         max-width: 100%;
+        text-align: center;
+        padding: 0;
     }
 
     .section-title {
