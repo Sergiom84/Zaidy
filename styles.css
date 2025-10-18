@@ -242,7 +242,7 @@ ul {
 
 @media (max-width: 600px) {
     .hero-background-carousel::after {
-        background: rgba(255, 255, 255, 0.75);
+        display: none;
     }
 }
 
@@ -1176,38 +1176,66 @@ ul {
 
 @media (max-width: 600px) {
     .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
+        padding: 80px 0 60px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .hero-background-carousel {
+        position: relative;
+        height: 50vh;
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 2;
+        margin-top: 0;
     }
 
     .hero-content {
-        padding: 0 15px;
+        padding: 2rem 15px;
+        flex-direction: column;
+        background: var(--white);
+    }
+
+    .hero-text {
+        text-align: center;
+        max-width: 100%;
     }
 
     .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 0.8rem;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
     }
 
     .subtitle {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        color: var(--text-light);
     }
 
     .hero-description {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        color: var(--text-dark);
     }
 
     .hero-buttons {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
+        width: 100%;
     }
 
     .hero-buttons .btn {
         width: 100%;
         text-align: center;
+        padding: 1rem 2rem;
     }
 
     .circle-image {
