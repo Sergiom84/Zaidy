@@ -1159,6 +1159,7 @@ ul {
     .hero {
         padding: 100px 0 60px;
         min-height: auto;
+        display: block; /* evita el layout en filas por flex */
     }
 
     .hero-content {
