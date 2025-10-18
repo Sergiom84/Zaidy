@@ -1200,6 +1200,28 @@ ul {
         grid-template-columns: 1fr;
     }
 
+    /* Mobile-only: mostrar el carrusel primero y el texto debajo */
+    .hero-background-carousel {
+        position: relative; /* deja que ocupe espacio en el flujo */
+        height: 60vh;
+        min-height: 320px;
+        max-height: 70vh;
+    }
+
+    .hero-bg-slide {
+        height: 100%;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 1;
+        margin-top: 12px; /* pequeño espacio bajo la imagen */
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
     .section-title {
         font-size: 1.8rem;
     }
