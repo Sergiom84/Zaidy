@@ -32,6 +32,8 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,6 +46,13 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+@media (max-width: 600px) {
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
 }
 
 a {
@@ -59,6 +68,12 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+    }
 }
 
 /* ===========================
@@ -100,6 +115,20 @@ ul {
     width: auto;
     max-width: 350px;
     transition: var(--transition);
+}
+
+@media (max-width: 968px) {
+    .logo img {
+        height: 80px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo img {
+        height: 60px;
+        max-width: 150px;
+    }
 }
 
 .logo:hover img {
@@ -212,6 +241,20 @@ ul {
     transition: opacity 1.5s ease-in-out;
 }
 
+@media (max-width: 968px) {
+    .hero-bg-slide {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-bg-slide {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
 .hero-bg-slide.active {
     opacity: 1;
 }
@@ -254,6 +297,7 @@ ul {
     font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .subtitle {
@@ -294,6 +338,15 @@ ul {
     box-shadow: var(--shadow-lg);
     position: relative;
     will-change: transform;
+}
+
+@media (max-width: 600px) {
+    .circle-image {
+        width: 220px;
+        height: 220px;
+        background-size: cover;
+        background-position: center center;
+    }
 }
 
 .circle-image::before {
@@ -381,12 +434,32 @@ ul {
     background: var(--white);
 }
 
+@media (max-width: 600px) {
+    .quote-section {
+        padding: 40px 0;
+    }
+}
+
 .quote-container {
     display: flex;
     align-items: center;
     gap: 3rem;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+    .quote-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .quote-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
 
 .main-quote {
@@ -414,12 +487,32 @@ ul {
     flex-shrink: 0;
 }
 
+@media (max-width: 968px) {
+    .quote-image {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .quote-image .image-placeholder {
+        width: 220px;
+        height: 220px;
+    }
+}
+
 /* ===========================
    Services Preview
    =========================== */
 .services-preview {
     padding: 80px 0;
     background: var(--bg-light);
+}
+
+@media (max-width: 600px) {
+    .services-preview {
+        padding: 60px 0;
+    }
 }
 
 .section-title {
@@ -429,11 +522,26 @@ ul {
     margin-bottom: 1rem;
 }
 
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+}
+
 .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
     color: var(--text-light);
     margin-bottom: 3rem;
+}
+
+@media (max-width: 600px) {
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+        margin-bottom: 2rem;
+    }
 }
 
 .services-grid {
@@ -450,6 +558,12 @@ ul {
     text-align: center;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 600px) {
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
 }
 
 .service-card:hover {
@@ -495,6 +609,12 @@ ul {
 .book-section {
     padding: 80px 0;
     background: var(--white);
+}
+
+@media (max-width: 600px) {
+    .book-section {
+        padding: 60px 0;
+    }
 }
 
 .book-content {
@@ -612,6 +732,12 @@ ul {
     text-align: center;
 }
 
+@media (max-width: 600px) {
+    .cta-section {
+        padding: 60px 0;
+    }
+}
+
 .cta-content h2 {
     font-size: 2.5rem;
     color: var(--white);
@@ -634,6 +760,12 @@ ul {
     background: var(--text-dark);
     color: var(--white);
     padding: 60px 0 20px;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
 }
 
 .footer-content {
@@ -926,10 +1058,14 @@ ul {
    Responsive Design
    =========================== */
 @media (max-width: 968px) {
+    .navbar .container {
+        padding: 0.8rem 15px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 65px;
         flex-direction: column;
         background-color: var(--white);
         width: 100%;
@@ -1021,19 +1157,38 @@ ul {
 
 @media (max-width: 600px) {
     .hero {
-        padding: 80px 0 40px;
+        padding: 100px 0 60px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 0 15px;
     }
 
     .hero h1 {
         font-size: 2rem;
+        margin-bottom: 0.8rem;
     }
 
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .circle-image {
@@ -1050,7 +1205,12 @@ ul {
     }
 
     .main-quote p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+
+    .main-quote cite {
+        font-size: 1rem;
     }
 
     .book-placeholder {
@@ -1058,12 +1218,39 @@ ul {
         height: 350px;
     }
 
+    .book-image {
+        max-width: 100%;
+        width: 100%;
+    }
+
     .book-info h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .book-info p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .book-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .book-actions .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .cta-content h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
     .footer-content {
@@ -1312,14 +1499,22 @@ ul {
 @media (max-width: 600px) {
     .modal-content {
         width: 95%;
+        max-width: 95%;
+        margin: 0 10px;
     }
 
     .modal-body {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.2rem;
     }
 
     .modal-body h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .modal-body > p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .modal-icon {
@@ -1330,5 +1525,19 @@ ul {
     .modal-icon svg {
         width: 35px;
         height: 35px;
+    }
+
+    .form-group-modal input {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-modal {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .modal-footer-text {
+        font-size: 0.8rem;
     }
 }
